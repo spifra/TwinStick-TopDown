@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
@@ -9,7 +10,7 @@ public class Enemy : MonoBehaviour
 
     public float movingSpeed;
 
-    private Rigidbody rigidbody;
+    private new Rigidbody rigidbody;
 
     private GameObject target;
 

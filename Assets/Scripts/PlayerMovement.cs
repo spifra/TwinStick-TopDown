@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float fireTime;
 
-    private Rigidbody rigidbody;
+    private new Rigidbody rigidbody;
 
     private GameObject muzzle;
     private Transform projectileParent;

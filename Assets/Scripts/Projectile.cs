@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour
     public float force;
     public float lifetime;
     public float damage;
-    private Rigidbody rigidbody;
+    private new Rigidbody rigidbody;
 
     private void Awake()
     {
