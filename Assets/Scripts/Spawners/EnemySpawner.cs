@@ -3,19 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner : Spawner
 {
-    public float secondToSpawn;
 
     private List<Enemy> enemiesResources = new List<Enemy>();
-    private List<Transform> enemiesSpawners = new List<Transform>();
 
     void Start()
     {
-
         //Get Enemy spawners
-        enemiesSpawners = transform.GetComponentsInChildren<Transform>().ToList();
-        enemiesSpawners.Remove(transform);
+        spawners = transform.GetComponentsInChildren<Transform>().ToList();
+        spawners.Remove(transform);
 
 
         enemiesResources = Resources.LoadAll<Enemy>("Enemies").ToList();
@@ -36,9 +33,9 @@ public class EnemySpawner : MonoBehaviour
         {
             int resourcesIndex = Random.Range(0, enemiesResources.Count);
 
-            int transformIndex = Random.Range(0, enemiesSpawners.Count);
+            int transformIndex = Random.Range(0, spawners.Count);
 
-            Instantiate(enemiesResources[resourcesIndex].gameObject, enemiesSpawners[transformIndex].transform.position, Quaternion.identity, enemiesSpawners[transformIndex]);
+            Instantiate(enemiesResources[resourcesIndex].gameObject, spawners[transformIndex].transform.position, Quaternion.identity, spawners[transformIndex]);
 
             yield return new WaitForSeconds(secondToSpawn);
         }
