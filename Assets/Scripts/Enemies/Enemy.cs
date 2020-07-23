@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float life;
+    public float lifePoints;
 
     public float movingSpeed;
 
@@ -26,16 +26,20 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Projectile"))
         {
-            Destroy(collision.gameObject);
-            LifeChecker(collision.gameObject.GetComponent<Projectile>().damage);
+            Projectile currentProjectile = collision.gameObject.GetComponent<Projectile>();
+
+            Destroy(currentProjectile.gameObject);
+
+            LifeChecker(currentProjectile.damage, currentProjectile.myPlayer);
         }
     }
 
-    private void LifeChecker(float damage)
+    private void LifeChecker(float damage, PlayerMovement player)
     {
-        life -= damage;
-        if (life <= 0)
+        lifePoints -= damage;
+        if (lifePoints <= 0)
         {
+            player.enemiesCounter++;
             Destroy(gameObject);
         }
     }

@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public float baseSpeed;
 
+    public int lifePoints;
+
     public Projectile projectile;
 
     [HideInInspector]
@@ -27,6 +29,12 @@ public class PlayerMovement : MonoBehaviour
     Vector3 movement = Vector3.zero;
 
     Vector3 rotation = Vector3.zero;
+
+    [HideInInspector]
+    public int enemiesCounter = 0;
+
+    [HideInInspector]
+    public string powerUp = "";
 
     void Start()
     {
@@ -82,7 +90,9 @@ public class PlayerMovement : MonoBehaviour
     {
         while (isShooting)
         {
-            Instantiate(projectile, muzzle.transform.position, muzzle.transform.rotation, projectileParent.transform);
+            Projectile currentProjectile = Instantiate(projectile, muzzle.transform.position, muzzle.transform.rotation, projectileParent.transform);
+
+            currentProjectile.myPlayer = this;
             yield return new WaitForSeconds(fireTime);
         }
     }

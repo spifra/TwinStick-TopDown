@@ -8,9 +8,11 @@ public class PowerUp_SpeedUp : PowerUp
 
     protected override IEnumerator Effect()
     {
+        player.powerUp = "Speed Up!";
         player.movingSpeed = newSpeed;
         yield return new WaitForSeconds(lifeTime);
         player.movingSpeed = player.baseSpeed;
+        player.powerUp = "";
         Destroy(gameObject);
     }
 }
