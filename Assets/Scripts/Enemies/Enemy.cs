@@ -12,8 +12,6 @@ public class Enemy : MonoBehaviour
 
     private new Rigidbody rigidbody;
 
-    private GameObject target;
-
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();

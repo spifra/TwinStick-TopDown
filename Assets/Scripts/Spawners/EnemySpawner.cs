@@ -19,15 +19,14 @@ public class EnemySpawner : Spawner
 
         if (enemiesResources.Count > 0)
         {
-            StartCoroutine(SpawnEnemies());
+            StartCoroutine(Spawn());
         }
         else
         {
             Debug.LogWarning("No enemy to spawn in the list!");
         }
     }
-
-    IEnumerator SpawnEnemies()
+    protected override IEnumerator Spawn()
     {
         while (true)
         {

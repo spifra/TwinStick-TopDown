@@ -1,7 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Xml.Schema;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,7 +7,13 @@ public class PlayerMovement : MonoBehaviour
     [Range(0f, 10f)]
     public float movingSpeed = 5f;
 
-    public GameObject projectile;
+    [HideInInspector]
+    public float baseSpeed;
+
+    public Projectile projectile;
+
+    [HideInInspector]
+    public Projectile baseProjectile;
 
     public float fireTime;
 
@@ -31,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
 
         muzzle = transform.GetChild(1).gameObject;
         projectileParent = GameObject.Find("Projectiles").transform;
+        baseProjectile = projectile;
+        baseSpeed = movingSpeed;
     }
 
     private void FixedUpdate()

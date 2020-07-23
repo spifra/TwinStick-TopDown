@@ -9,7 +9,7 @@ public class Spawner : MonoBehaviour
 
     protected List<Transform> spawners = new List<Transform>();
 
-    public virtual IEnumerator Spawn()
+    protected virtual IEnumerator Spawn()
     {
         yield return null;
     }
