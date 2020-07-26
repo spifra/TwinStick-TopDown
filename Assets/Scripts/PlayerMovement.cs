@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 rotation = Vector3.zero;
 
+    Vector3 startingPosition = Vector3.zero;
+
     [HideInInspector]
     public int enemiesCounter = 0;
 
@@ -44,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
         projectileParent = GameObject.Find("Projectiles").transform;
         baseProjectile = projectile;
         baseSpeed = movingSpeed;
+        startingPosition = transform.position;
     }
 
     private void FixedUpdate()
@@ -55,6 +58,11 @@ public class PlayerMovement : MonoBehaviour
         if (rotation != Vector3.zero)
         {
             rigidbody.rotation = Quaternion.LookRotation(rotation * Time.fixedDeltaTime);
+        }
+
+        if (transform.position.y < -5)
+        {
+            transform.position = startingPosition;
         }
     }
 

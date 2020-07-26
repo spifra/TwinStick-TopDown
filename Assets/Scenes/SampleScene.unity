@@ -1305,6 +1305,11 @@ PrefabInstance:
       propertyPath: lifePoints
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5639866252498868570, guid: a275fe778ccfa5941849bc4170a40b3d,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 5639866252498868575, guid: a275fe778ccfa5941849bc4170a40b3d,
         type: 3}
       propertyPath: m_LocalPosition.x

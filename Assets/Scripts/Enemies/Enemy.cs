@@ -12,9 +12,12 @@ public class Enemy : MonoBehaviour
 
     private new Rigidbody rigidbody;
 
+    private GameObject target;
+
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        target = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Update()
@@ -46,11 +49,14 @@ public class Enemy : MonoBehaviour
 
     private void FollowTarget()
     {
-        GameObject target = GameObject.FindGameObjectWithTag("Player");
-
         transform.LookAt(target.transform);
 
-        rigidbody.AddRelativeForce(Vector3.forward * movingSpeed, ForceMode.Force);
+        rigidbody.AddForce(transform.forward * movingSpeed, ForceMode.Force);
+
+        if (transform.position.y < -5)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnDestroy()
