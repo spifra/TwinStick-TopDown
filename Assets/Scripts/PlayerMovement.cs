@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
             rigidbody.rotation = Quaternion.LookRotation(rotation * Time.fixedDeltaTime);
         }
 
+        //Reset Position
         if (transform.position.y < -5)
         {
             transform.position = startingPosition;

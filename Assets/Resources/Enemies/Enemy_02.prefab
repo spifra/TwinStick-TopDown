@@ -94,8 +94,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf018f41e74346142b5f5e2fbef6ec59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifePoints: 0
-  movingSpeed: 5
+  lifePoints: 1
+  movingSpeed: 3
 --- !u!54 &6240991968593654116
 Rigidbody:
   m_ObjectHideFlags: 0
