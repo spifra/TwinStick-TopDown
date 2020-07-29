@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
@@ -10,7 +8,7 @@ public class CameraFollow : MonoBehaviour
 
     void Start()
     {
-        targetTransform = FindObjectOfType<PlayerMovement>().transform;
+        targetTransform = FindObjectOfType<Player>().transform;
     }
 
     void Update()

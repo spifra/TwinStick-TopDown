@@ -43,6 +43,8 @@ GameObject:
   - component: {fileID: 5639866252498868572}
   - component: {fileID: 5639866252498868569}
   - component: {fileID: 5639866252498868568}
+  - component: {fileID: 2770524461870106833}
+  - component: {fileID: 972616279610128994}
   m_Layer: 0
   m_Name: PG
   m_TagString: Untagged
@@ -139,7 +141,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingSpeed: 10
+  baseSpeed: 0
+  lifePoints: 0
   projectile: {fileID: 0}
+  baseProjectile: {fileID: 0}
+  fireTime: 0
+  enemiesCounter: 0
+  powerUp: 
+--- !u!114 &2770524461870106833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5639866252498868547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96da9ba1cf7d4804198a3bf78db698fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubeSize: 0.2
+  cubesInRow: 5
+  explosionForce: 50
+  explosionRadius: 4
+  explosionUpward: 0.4
+--- !u!114 &972616279610128994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5639866252498868547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c56601dec8140a041994908383b602b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5639866253368011915
 GameObject:
   m_ObjectHideFlags: 0

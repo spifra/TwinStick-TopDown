@@ -6,7 +6,7 @@ public class PowerUp : MonoBehaviour
 {
     public float lifeTime;
 
-    protected PlayerMovement player;
+    protected Player player;
 
     private bool isTriggered = false;
 
@@ -17,7 +17,7 @@ public class PowerUp : MonoBehaviour
         if (!isTriggered && other.gameObject.CompareTag("Player"))
         {
             isTriggered = true;
-            player = other.gameObject.GetComponent<PlayerMovement>();
+            player = other.gameObject.GetComponent<Player>();
             StartCoroutine(Effect());
             Destroy(transform.GetChild(0).gameObject);
         }

@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 6240991968593654119}
   - component: {fileID: 6240991968593654116}
   - component: {fileID: 4977423697707859181}
+  - component: {fileID: -4457972472754881402}
+  - component: {fileID: -1384100835975779378}
   m_Layer: 0
   m_Name: Enemy_01
   m_TagString: Enemy
@@ -125,3 +127,33 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.6
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-4457972472754881402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6240991968593654122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96da9ba1cf7d4804198a3bf78db698fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubeSize: 0.2
+  cubesInRow: 5
+  explosionForce: 50
+  explosionRadius: 4
+  explosionUpward: 0.4
+--- !u!114 &-1384100835975779378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6240991968593654122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaea24b0d81190d449127f8dab4d5117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifePoints: 2

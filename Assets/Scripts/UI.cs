@@ -9,11 +9,11 @@ public class UI : MonoBehaviour
     public TMP_Text enemiesCounter;
     public TMP_Text powerUp;
 
-    private PlayerMovement player;
+    private Player player;
 
     private void Awake()
     {
-        player = FindObjectOfType<PlayerMovement>();
+        player = FindObjectOfType<Player>();
     }
 
     private void Update()

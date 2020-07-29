@@ -1,11 +1,14 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PowerUp_SpeedUp : PowerUp
 {
-    public float newSpeed;
+    private float newSpeed;
 
+    private void Start()
+    {
+        newSpeed = Random.Range(5, 20);
+    }
     protected override IEnumerator Effect()
     {
         player.powerUp = "Speed Up!";

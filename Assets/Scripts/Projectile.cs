@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
     public float damage;
 
     [HideInInspector]
-    public PlayerMovement myPlayer;
+    public Player myPlayer;
 
     private new Rigidbody rigidbody;
 
@@ -28,10 +28,5 @@ public class Projectile : MonoBehaviour
     {
         yield return new WaitForSeconds(lifetime);
         Destroy(gameObject);
-    }
-
-    private void OnDestroy()
-    {
-        Debug.Log("projectile particles");
     }
 }
