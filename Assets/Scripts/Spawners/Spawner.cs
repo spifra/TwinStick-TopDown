@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    [Tooltip("Seconds between spawned entities")]
+    public float spawnTimer;
 
-    public float secondToSpawn;
+    [Tooltip("Total Number of entities to spawn in this spawner")]
+    public float entitiesToSpawn;
 
     protected List<Transform> spawners = new List<Transform>();
 

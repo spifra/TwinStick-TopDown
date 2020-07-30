@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Distructible : MonoBehaviour
+public class Distructible : MonoBehaviour, IDamageable
 {
     public float lifePoints = 2f;
 
@@ -13,28 +13,12 @@ public class Distructible : MonoBehaviour
         death = GetComponent<ExplosibleDeath>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void LifeChecker(float damage, Player player)
     {
-        if (collision.gameObject.CompareTag("Projectile"))
-        {
-            Projectile currentProjectile = collision.gameObject.GetComponent<Projectile>();
-
-            Destroy(currentProjectile.gameObject);
-
-            LifeChecker(currentProjectile.damage, currentProjectile.myPlayer);
-        }
-    }
-
-    private void LifeChecker(float damage, Player player)
-    {
+        
         lifePoints -= damage;
         if (lifePoints <= 0)
         {
-            if (gameObject.CompareTag("Enemy"))
-            {
-                player.enemiesCounter++;
-            }
-
             death.Explosion();
             Destroy(gameObject);
         }

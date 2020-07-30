@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour , IDamageable
 {
     public float lifePoints;
 
@@ -14,9 +14,12 @@ public class Enemy : MonoBehaviour
 
     private GameObject target;
 
+    private ExplosibleDeath death;
+
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        death = GetComponent<ExplosibleDeath>();
 
         target = GameObject.FindGameObjectWithTag("Player");
     }
@@ -34,6 +37,19 @@ public class Enemy : MonoBehaviour
 
         if (transform.position.y < -5)
         {
+            Destroy(gameObject);
+        }
+    }
+
+    public void LifeChecker(float damage, Player player)
+    {
+
+        lifePoints -= damage;
+        if (lifePoints <= 0)
+        {
+            player.enemiesCounter++;
+            death.Explosion();
+         
             Destroy(gameObject);
         }
     }

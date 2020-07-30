@@ -2,11 +2,14 @@
 using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
 public class Player : MonoBehaviour
 {
     [Range(0f, 10f)]
     public float movingSpeed = 5f;
+
+    public float jumpForce = 5f;
 
     public int lifePoints;
 
@@ -117,6 +120,11 @@ public class Player : MonoBehaviour
             isShooting = false;
             StopAllCoroutines();
         }
+    }
+
+    private void OnJump()
+    {
+        rigidbody.AddForce(Vector3.up * jumpForce);
     }
 
     #endregion

@@ -29,15 +29,18 @@ public class PowerUpSpawner : Spawner
 
     protected override IEnumerator Spawn()
     {
-        while (true)
+        while (entitiesToSpawn > 0)
         {
             int resourcesIndex = Random.Range(0, powerUpResources.Count);
             int transformIndex = Random.Range(0, spawners.Count);
 
+            //If there isn't any other powerup we'll spawn one
             if(FindObjectOfType<PowerUp>() == null)
             Instantiate(powerUpResources[resourcesIndex].gameObject, spawners[transformIndex].transform.position, Quaternion.identity, spawners[transformIndex]);
-
-            yield return new WaitForSeconds(secondToSpawn);
+           
+            entitiesToSpawn--;
+            
+            yield return new WaitForSeconds(spawnTimer);
         }
     }
 

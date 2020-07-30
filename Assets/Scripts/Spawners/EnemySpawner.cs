@@ -28,15 +28,17 @@ public class EnemySpawner : Spawner
     }
     protected override IEnumerator Spawn()
     {
-        while (true)
+        while (entitiesToSpawn > 0)
         {
             int resourcesIndex = Random.Range(0, enemiesResources.Count);
 
             int transformIndex = Random.Range(0, spawners.Count);
 
             Instantiate(enemiesResources[resourcesIndex].gameObject, spawners[transformIndex].transform.position, Quaternion.identity, spawners[transformIndex]);
-
-            yield return new WaitForSeconds(secondToSpawn);
+           
+            entitiesToSpawn--;
+            
+            yield return new WaitForSeconds(spawnTimer);
         }
     }
 }
