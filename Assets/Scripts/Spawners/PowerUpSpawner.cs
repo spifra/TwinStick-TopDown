@@ -31,16 +31,20 @@ public class PowerUpSpawner : Spawner
     {
         while (entitiesToSpawn > 0)
         {
-            int resourcesIndex = Random.Range(0, powerUpResources.Count);
-            int transformIndex = Random.Range(0, spawners.Count);
+            if (LevelManager.Instance.isLevelStarted)
+            {
+                int resourcesIndex = Random.Range(0, powerUpResources.Count);
+                int transformIndex = Random.Range(0, spawners.Count);
 
-            //If there isn't any other powerup we'll spawn one
-            if(FindObjectOfType<PowerUp>() == null)
-            Instantiate(powerUpResources[resourcesIndex].gameObject, spawners[transformIndex].transform.position, Quaternion.identity, spawners[transformIndex]);
-           
-            entitiesToSpawn--;
-            
-            yield return new WaitForSeconds(spawnTimer);
+                //If there isn't any other powerup we'll spawn one
+                if (FindObjectOfType<PowerUp>() == null)
+                    Instantiate(powerUpResources[resourcesIndex].gameObject, spawners[transformIndex].transform.position, Quaternion.identity, spawners[transformIndex]);
+
+                entitiesToSpawn--;
+
+                yield return new WaitForSeconds(spawnTimer);
+            }
+            yield return new WaitForEndOfFrame();
         }
     }
 

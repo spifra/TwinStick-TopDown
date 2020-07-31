@@ -6,44 +6,44 @@ using System;
 
 public class Player : MonoBehaviour
 {
+    [Space]
+    [Header("Movement")]
     [Range(0f, 10f)]
     public float movingSpeed = 5f;
 
-    public float jumpForce = 5f;
-
+    [Space]
+    [Header("Stats")]
     public int lifePoints;
 
+    [Space]
+    [Header("Fire")]
     public Projectile projectile;
-
     public float fireTime;
 
-    private new Rigidbody rigidbody;
-
+    /*Fire*/
     private GameObject muzzle;
     private Transform projectileParent;
-
     private bool isShooting = false;
 
+    /*Movement*/
     private Vector3 movement = Vector3.zero;
-
     private Vector3 rotation = Vector3.zero;
-
     private Vector3 startingPosition = Vector3.zero;
+    private new Rigidbody rigidbody;
 
     private ExplosibleDeath death;
 
+    /*Stats*/
     //We need this variable to restore the base projectile after the bonus
     [HideInInspector]
     public Projectile baseProjectile;
-
     //We need this variable to restore the base speed after the bonus
     [HideInInspector]
     public float baseSpeed;
 
-
+    /*HUD*/
     [HideInInspector]
     public int enemiesCounter = 0;
-
     [HideInInspector]
     public string powerUp = "";
 
@@ -61,21 +61,37 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Movement
-        rigidbody.MovePosition(rigidbody.position + movement * movingSpeed * Time.fixedDeltaTime);
+        Move();
 
-        //Rotation
-        if (rotation != Vector3.zero)
+        CheckForResetPosition();
+    }
+
+    /// <summary>
+    /// If the level is started we move and rotate the player.
+    /// MovePosition: We multiply the rigidbody position by the Vector3 Input
+    /// </summary>
+    private void Move()
+    {
+        if (LevelManager.Instance.isLevelStarted)
         {
-            rigidbody.rotation = Quaternion.LookRotation(rotation * Time.fixedDeltaTime);
-        }
+            rigidbody.MovePosition(rigidbody.position + movement * movingSpeed * Time.fixedDeltaTime);
 
-        //Reset Position
+            if (rotation != Vector3.zero)
+            {
+                rigidbody.rotation = Quaternion.LookRotation(rotation * Time.fixedDeltaTime);
+            }
+        }
+    }
+
+    //If the player fall from the ground we reset the position 
+    private void CheckForResetPosition()
+    {
         if (transform.position.y < -5)
         {
             transform.position = startingPosition;
         }
     }
+
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -85,15 +101,19 @@ public class Player : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// When the player collide with an enemy we decrement his lifepoints. 
+    /// if the player doesn't have any lifepoints we call the explosion function in the death component and after we restart the level.
+    /// </summary>
     private void LifeChecker()
     {
         lifePoints--;
         if (lifePoints <= 0)
         {
             death.Explosion();
+            LevelManager.Instance.RestartLevel();
         }
     }
-
 
     #region INPUT
     private void OnMove(InputValue value)
@@ -120,11 +140,6 @@ public class Player : MonoBehaviour
             isShooting = false;
             StopAllCoroutines();
         }
-    }
-
-    private void OnJump()
-    {
-        rigidbody.AddForce(Vector3.up * jumpForce);
     }
 
     #endregion

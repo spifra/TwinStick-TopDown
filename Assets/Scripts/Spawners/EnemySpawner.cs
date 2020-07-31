@@ -30,15 +30,19 @@ public class EnemySpawner : Spawner
     {
         while (entitiesToSpawn > 0)
         {
-            int resourcesIndex = Random.Range(0, enemiesResources.Count);
+            if (LevelManager.Instance.isLevelStarted)
+            {
+                int resourcesIndex = Random.Range(0, enemiesResources.Count);
 
-            int transformIndex = Random.Range(0, spawners.Count);
+                int transformIndex = Random.Range(0, spawners.Count);
 
-            Instantiate(enemiesResources[resourcesIndex].gameObject, spawners[transformIndex].transform.position, Quaternion.identity, spawners[transformIndex]);
-           
-            entitiesToSpawn--;
-            
-            yield return new WaitForSeconds(spawnTimer);
+                Instantiate(enemiesResources[resourcesIndex].gameObject, spawners[transformIndex].transform.position, Quaternion.identity, spawners[transformIndex]);
+
+                entitiesToSpawn--;
+
+                yield return new WaitForSeconds(spawnTimer);
+            }
+            yield return new WaitForEndOfFrame();
         }
     }
 }

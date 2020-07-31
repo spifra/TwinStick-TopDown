@@ -31,13 +31,16 @@ public class Enemy : MonoBehaviour , IDamageable
 
     private void FollowTarget()
     {
-        transform.LookAt(target.transform);
-
-        rigidbody.AddForce(transform.forward * movingSpeed, ForceMode.Force);
-
-        if (transform.position.y < -5)
+        if (!LevelManager.Instance.isLevelEnded)
         {
-            Destroy(gameObject);
+            transform.LookAt(target.transform);
+
+            rigidbody.AddForce(transform.forward * movingSpeed, ForceMode.Force);
+
+            if (transform.position.y < -5)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
