@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{17516b1d-00e7-4b75-b24b-8fa87c9ce46d}">
+		<property name="assetPath">
+			<value>EnemyDeath.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.62693877551020405</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{9d40c825-d0ed-489b-9b7e-777774026ee1}</destination>
+		</relationship>
+	</object>
+</objects>

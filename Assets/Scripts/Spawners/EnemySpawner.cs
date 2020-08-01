@@ -37,6 +37,7 @@ public class EnemySpawner : Spawner
                 int transformIndex = Random.Range(0, spawners.Count);
 
                 Instantiate(enemiesResources[resourcesIndex].gameObject, spawners[transformIndex].transform.position, Quaternion.identity, spawners[transformIndex]);
+                SoundManager.Instance.PlaySound("EnemySpawn");
 
                 entitiesToSpawn--;
 

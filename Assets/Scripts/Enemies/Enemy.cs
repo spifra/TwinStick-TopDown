@@ -51,6 +51,9 @@ public class Enemy : MonoBehaviour , IDamageable
         if (lifePoints <= 0)
         {
             player.enemiesCounter++;
+
+            SoundManager.Instance.PlaySound("EnemyDeath");
+
             death.Explosion();
          
             Destroy(gameObject);

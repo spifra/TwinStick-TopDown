@@ -16,6 +16,7 @@ public class PowerUp : MonoBehaviour
     {
         if (!isTriggered && other.gameObject.CompareTag("Player"))
         {
+            SoundManager.Instance.PlaySound("Bonus");
             isTriggered = true;
             player = other.gameObject.GetComponent<Player>();
             StartCoroutine(Effect());

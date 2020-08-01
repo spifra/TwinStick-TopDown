@@ -11,7 +11,7 @@ public class PowerUp_SpeedUp : PowerUp
     }
     protected override IEnumerator Effect()
     {
-        player.powerUp = "speed up!";
+        player.powerUp = "power up: speed up";
         player.movingSpeed = newSpeed;
         yield return new WaitForSeconds(lifeTime);
         player.movingSpeed = player.baseSpeed;

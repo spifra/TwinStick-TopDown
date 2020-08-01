@@ -7,7 +7,7 @@ public class PowerUp_Bomb : PowerUp
 
     protected override IEnumerator Effect()
     {
-        player.powerUp = "bomb!";
+        player.powerUp = "power up: bomb";
         player.projectile = bombProjectile;
         yield return new WaitForSeconds(lifeTime);
         player.projectile = player.baseProjectile;
