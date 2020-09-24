@@ -55,7 +55,9 @@ public class Enemy : MonoBehaviour , IDamageable
             SoundManager.Instance.PlaySound("EnemyDeath");
 
             death.Explosion();
-         
+
+            LevelManager.Instance.CheckForEndLevel(player);
+
             Destroy(gameObject);
         }
     }

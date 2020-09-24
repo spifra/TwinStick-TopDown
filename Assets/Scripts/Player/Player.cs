@@ -34,10 +34,10 @@ public class Player : MonoBehaviour
     private ExplosibleDeath death;
 
     /*Stats*/
-    //We need this variable to restore the base projectile after the bonus
+    //Variable to restore the base projectile after the bonus
     [HideInInspector]
     public Projectile baseProjectile;
-    //We need this variable to restore the base speed after the bonus
+    //Variable to restore the base speed after the bonus
     [HideInInspector]
     public float baseSpeed;
 
@@ -67,8 +67,8 @@ public class Player : MonoBehaviour
     }
 
     /// <summary>
-    /// If the level is started we move and rotate the player.
-    /// MovePosition: We multiply the rigidbody position by the Vector3 Input
+    /// If the level is started move and rotate the player.
+    /// MovePosition: Multiply the rigidbody position by the Vector3 Input
     /// </summary>
     private void Move()
     {
@@ -83,7 +83,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    //If the player fall from the ground we reset the position 
+    //If the player fall from the ground reset the position 
     private void CheckForResetPosition()
     {
         if (transform.position.y < -5)
@@ -102,8 +102,8 @@ public class Player : MonoBehaviour
     }
 
     /// <summary>
-    /// When the player collide with an enemy we decrement his lifepoints. 
-    /// if the player doesn't have any lifepoints we call the explosion function in the death component and after we restart the level.
+    /// When the player collide with an enemy decrement his lifepoints. 
+    /// if the player doesn't have any lifepoints call the explosion function in the death component and after restart the level.
     /// </summary>
     private void LifeChecker()
     {
@@ -111,7 +111,7 @@ public class Player : MonoBehaviour
         if (lifePoints <= 0)
         {
             death.Explosion();
-            LevelManager.Instance.RestartLevel();
+            GameManager.Instance.RestartLevel();
         }
     }
 

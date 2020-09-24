@@ -27,14 +27,8 @@ public class LevelManager : MonoBehaviour
     }
     #endregion
 
-    [Space]
-    [Header("Level Rules")]
-    [Tooltip("When the player died, the level will be loaded after this time")]
-    public float timeRestartLevel;
-
-    [Space]
-    [Header("DEBUG")]
-    public Levels level;
+    [HideInInspector]
+    public int enemiesToKill;
 
     [HideInInspector]
     public bool isLevelStarted = false;
@@ -42,21 +36,19 @@ public class LevelManager : MonoBehaviour
     [HideInInspector]
     public bool isLevelEnded = false;
 
-    private List<GameObject> levels = new List<GameObject>();
-
     private void Awake()
     {
         instance = this;
-        levels = Resources.LoadAll<GameObject>("Levels").ToList();
+
         StartCoroutine(InitLevel());
 
         LevelBuilder();
     }
 
     void LevelBuilder()
-    {   
-        SoundManager.Instance.PlaySound(level.ToString());
-        GameObject currentLevel = levels.Where(x => x.name == level.ToString()).FirstOrDefault();
+    {
+        GameObject currentLevel = GameManager.Instance.GetCurrentLevel();
+
         Instantiate(currentLevel);
     }
 
@@ -69,15 +61,11 @@ public class LevelManager : MonoBehaviour
         isLevelStarted = true;
     }
 
-    public void RestartLevel()
+    public void CheckForEndLevel(Player player)
     {
-        StartCoroutine(LoadLevel());
-    }
-
-    private IEnumerator LoadLevel()
-    {
-        isLevelEnded = true;
-        yield return new WaitForSeconds(timeRestartLevel);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (player.enemiesCounter >= enemiesToKill)
+        {
+            GameManager.Instance.NextLevel();
+        }
     }
 }

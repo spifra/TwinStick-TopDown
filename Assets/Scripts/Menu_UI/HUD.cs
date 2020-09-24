@@ -28,7 +28,7 @@ public class HUD : MonoBehaviour
     private void Update()
     {
         lifePoints.text = "lifePoints: " + player.lifePoints;
-        enemiesCounter.text = "enemies killed: " + player.enemiesCounter;
+        enemiesCounter.text = "enemies killed: " + player.enemiesCounter + " / " + LevelManager.Instance.enemiesToKill;
         powerUp.text = player.powerUp;
     }
 
