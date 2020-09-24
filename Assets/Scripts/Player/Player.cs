@@ -4,6 +4,20 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
 
+/// <summary>
+/// Control scheme:
+/// 
+/// Gamepad:
+/// left stick: move
+/// right stick: rotate
+/// right trigger: shoot
+/// 
+/// Keyboard:
+/// wasd: move
+/// arrows: rotate
+/// space: shoot
+/// </summary>
+
 public class Player : MonoBehaviour
 {
     [Space]
