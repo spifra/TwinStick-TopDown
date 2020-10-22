@@ -45,6 +45,7 @@ public class LevelManager : MonoBehaviour
         LevelBuilder();
     }
 
+    //Get current level and instatiate it
     void LevelBuilder()
     {
         GameObject currentLevel = GameManager.Instance.GetCurrentLevel();
@@ -61,6 +62,7 @@ public class LevelManager : MonoBehaviour
         isLevelStarted = true;
     }
 
+    //Check if the player kill all the enemies and call next level
     public void CheckForEndLevel(Player player)
     {
         if (player.enemiesCounter >= enemiesToKill)

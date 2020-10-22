@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
         return levels.Where(x => x.name == level.ToString()).FirstOrDefault();
     }
 
+    //to go to the next level we add to the level and we load gameplay scene again. LevelManager will call its awake again and it will load the new level
     public void NextLevel()
     {
         level = level + 1;
