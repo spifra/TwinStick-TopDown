@@ -48,6 +48,7 @@ public class LevelManager : MonoBehaviour
     //Get current level and instatiate it
     void LevelBuilder()
     {
+
         GameObject currentLevel = GameManager.Instance.GetCurrentLevel();
 
         Instantiate(currentLevel);
