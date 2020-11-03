@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public float height;
-
+    [SerializeField]
+    private float height;
     private Transform targetTransform;
 
     void Start()

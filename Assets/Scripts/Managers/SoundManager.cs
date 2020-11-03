@@ -26,7 +26,7 @@ public class SoundManager : MonoBehaviour
     }
     #endregion
 
-    List<StudioEventEmitter> soundsList = new List<StudioEventEmitter>();
+    private List<StudioEventEmitter> soundsList = new List<StudioEventEmitter>();
 
     private void Awake()
     {

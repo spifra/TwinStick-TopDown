@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class PowerUp_Bomb : PowerUp
 {
-    public Projectile bombProjectile;
+    [SerializeField]
+    private Projectile bombProjectile;
 
     protected override IEnumerator Effect()
     {

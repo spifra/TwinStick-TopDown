@@ -6,10 +6,14 @@ using UnityEngine;
 
 public class HUD : MonoBehaviour
 {
-    public TMP_Text lifePoints;
-    public TMP_Text enemiesCounter;
-    public TMP_Text powerUp;
-    public TMP_Text readyToStart;
+    [SerializeField]
+    private TMP_Text lifePoints;
+    [SerializeField]
+    private TMP_Text enemiesCounter;
+    [SerializeField]
+    private TMP_Text powerUp;
+    [SerializeField]
+    private TMP_Text readyToStart;
 
     private Player player;
 

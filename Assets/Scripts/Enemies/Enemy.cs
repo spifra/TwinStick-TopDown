@@ -6,14 +6,13 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour , IDamageable
 {
-    public float lifePoints;
-
-    public float movingSpeed;
+    [SerializeField]
+    private float lifePoints;
+    [SerializeField]
+    private float movingSpeed;
 
     private new Rigidbody rigidbody;
-
     private GameObject target;
-
     private ExplosibleDeath death;
 
     private void Start()

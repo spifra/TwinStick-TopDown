@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SpawerActivator : MonoBehaviour
 {
-    public List<GameObject> spawners = new List<GameObject>();
-
+    [SerializeField]
+    private List<GameObject> spawners = new List<GameObject>();
 
     private void OnTriggerEnter(Collider other)
     {

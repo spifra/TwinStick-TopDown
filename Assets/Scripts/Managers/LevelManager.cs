@@ -41,7 +41,10 @@ public class LevelManager : MonoBehaviour
         instance = this;
 
         StartCoroutine(InitLevel());
+    }
 
+    private void Start()
+    {
         LevelBuilder();
     }
 

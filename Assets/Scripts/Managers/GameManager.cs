@@ -27,11 +27,13 @@ public class GameManager : MonoBehaviour
     [Space]
     [Header("Game Rules")]
     [Tooltip("When the player died, the level will be loaded after this time")]
-    public float timeRestartLevel;
+    [SerializeField]
+    private float timeRestartLevel;
 
     [Space]
     [Header("DEBUG")]
-    public Levels level;
+    [SerializeField]
+    private Levels level;
 
     private List<GameObject> levels = new List<GameObject>();
 
