@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     [Space]
     [Header("Game Rules")]
-    [Tooltip("When the player died, the level will be loaded after this time")]
+    [Tooltip("When the player died, When the player died, the level will be loaded after this time")]
     [SerializeField]
     private float timeRestartLevel;
 
@@ -44,17 +44,17 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
+    // Set enemies to kill in the level and return the level prefab to load
     public GameObject GetCurrentLevel()
     {
         LevelManager.Instance.enemiesToKill = (int)Random.Range(5f, 10f);
         return levels.Where(x => x.name == level.ToString()).FirstOrDefault();
     }
 
-    //to go to the next level we add to the level and we load gameplay scene again. LevelManager will call its awake again and it will load the new level
+    // To go to the next level we add to the level and we load gameplay scene again. LevelManager will call its awake again and it will load the new level
     public void NextLevel()
     {
         level = level + 1;
-        Debug.Log(level);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

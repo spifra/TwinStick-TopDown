@@ -315,7 +315,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   height: 34
---- !u!1001 &1177481670
+--- !u!1 &1182021067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1182021068}
+  m_Layer: 0
+  m_Name: VFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1182021068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182021067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1547129379
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -325,7 +355,17 @@ PrefabInstance:
     - target: {fileID: 8784293228530424176, guid: 7e6b5e70f5b9b614f9f994b33f5d5f90,
         type: 3}
       propertyPath: m_Name
-      value: GameManager
+      value: GameManager(Debug)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784293228530424176, guid: 7e6b5e70f5b9b614f9f994b33f5d5f90,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784293228530424178, guid: 7e6b5e70f5b9b614f9f994b33f5d5f90,
+        type: 3}
+      propertyPath: level
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8784293228530424179, guid: 7e6b5e70f5b9b614f9f994b33f5d5f90,
         type: 3}
@@ -384,36 +424,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e6b5e70f5b9b614f9f994b33f5d5f90, type: 3}
---- !u!1 &1182021067
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1182021068}
-  m_Layer: 0
-  m_Name: VFX
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1182021068
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1182021067}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1106653087667471914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -505,6 +515,11 @@ PrefabInstance:
         type: 3}
       propertyPath: enemiesToKill
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929455000935124630, guid: 66077622219b99545afbbdc11248baf0,
+        type: 3}
+      propertyPath: debugGameManager
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3929455000935124631, guid: 66077622219b99545afbbdc11248baf0,
         type: 3}
