@@ -5,11 +5,11 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField]
-    private float force;
+    private float force = 0.0f;
     [SerializeField]
-    private float lifetime;
+    private float lifetime = 0.0f;
     [SerializeField]
-    private float damage;
+    private float damage = 0.0f;
 
     [HideInInspector]
     public Player myPlayer;

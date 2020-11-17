@@ -7,13 +7,13 @@ using UnityEngine;
 public class HUD : MonoBehaviour
 {
     [SerializeField]
-    private TMP_Text lifePoints;
+    private TMP_Text lifePoints = null;
     [SerializeField]
-    private TMP_Text enemiesCounter;
+    private TMP_Text enemiesCounter = null;
     [SerializeField]
-    private TMP_Text powerUp;
+    private TMP_Text powerUp = null;
     [SerializeField]
-    private TMP_Text readyToStart;
+    private TMP_Text readyToStart = null;
 
     private Player player;
 

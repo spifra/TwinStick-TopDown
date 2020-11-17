@@ -4,7 +4,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField]
-    private float height;
+    private float height = 34.0f;
     private Transform targetTransform;
 
     void Start()

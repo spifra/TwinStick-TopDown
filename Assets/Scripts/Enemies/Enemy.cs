@@ -7,9 +7,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour , IDamageable
 {
     [SerializeField]
-    private float lifePoints;
+    private float lifePoints = 0.0f;
     [SerializeField]
-    private float movingSpeed;
+    private float movingSpeed = 0.0f;
 
     private new Rigidbody rigidbody;
     private GameObject target;

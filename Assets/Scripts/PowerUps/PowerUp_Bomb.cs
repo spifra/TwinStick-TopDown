@@ -4,7 +4,7 @@ using UnityEngine;
 public class PowerUp_Bomb : PowerUp
 {
     [SerializeField]
-    private Projectile bombProjectile;
+    private Projectile bombProjectile = null;
 
     protected override IEnumerator Effect()
     {

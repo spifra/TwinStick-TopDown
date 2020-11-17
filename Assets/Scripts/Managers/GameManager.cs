@@ -26,9 +26,9 @@ public class GameManager : MonoBehaviour
 
     [Space]
     [Header("Game Rules")]
-    [Tooltip("When the player died, When the player died, the level will be loaded after this time")]
+    [Tooltip("When the player died the level will be loaded after this time")]
     [SerializeField]
-    private float timeRestartLevel;
+    private float timeRestartLevel = 0.0f;
 
     [Space]
     [Header("DEBUG")]
@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
     public void NextLevel()
     {
         level = level + 1;
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
