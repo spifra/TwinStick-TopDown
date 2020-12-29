@@ -30,6 +30,11 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private float timeRestartLevel = 0.0f;
 
+    [HideInInspector]
+    public GameObject pauseMenu;
+
+    private bool isPaused = false;
+
     [Space]
     [Header("DEBUG")]
     [SerializeField]
@@ -37,11 +42,25 @@ public class GameManager : MonoBehaviour
 
     private List<GameObject> levels = new List<GameObject>();
 
+
     private void Awake()
     {
-        instance = this;
+        if (instance != null && instance != this)
+            Destroy(this.gameObject);
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+
         levels = Resources.LoadAll<GameObject>("Levels").ToList();
-        DontDestroyOnLoad(this.gameObject);
+    }
+
+    private void GameManagerInit()
+    {
+        level = Levels.Level1;
+        isPaused = false;
+        Time.timeScale = 1;
     }
 
     // Set enemies to kill in the level and return the level prefab to load
@@ -54,19 +73,65 @@ public class GameManager : MonoBehaviour
     // To go to the next level we add to the level and we load gameplay scene again. LevelManager will call its awake again and it will load the new level
     public void NextLevel()
     {
-        level = level + 1;
+        if (level == Levels.Level4)
+        {
+            StartCoroutine(EndGame());
+        }
+        else
+        {
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            level = level + 1;
+
+            StartCoroutine(LoadLevel(SceneManager.GetActiveScene().name));
+        }
     }
 
     public void RestartLevel()
     {
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().name));
     }
+
     private IEnumerator LoadLevel(string sceneName)
     {
         LevelManager.Instance.isLevelEnded = true;
         yield return new WaitForSeconds(timeRestartLevel);
         SceneManager.LoadScene(sceneName);
     }
+
+    private IEnumerator EndGame()
+    {
+        SceneManager.LoadScene(2);
+
+        yield return new WaitForSeconds(5);
+
+        OnMainMenu();
+    }
+
+    public void OnMainMenu()
+    {
+        SceneManager.LoadScene(0);
+        GameManagerInit();
+    }
+
+    public void OnPause()
+    {
+        if (!isPaused)
+        {
+            Time.timeScale = 0;
+            pauseMenu.SetActive(true);
+            isPaused = true;
+        }
+        else
+        {
+            OnResume();
+        }
+    }
+
+    public void OnResume()
+    {
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
+        isPaused = false;
+    }
+
 }

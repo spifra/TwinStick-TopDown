@@ -15,13 +15,16 @@ public class HUD : MonoBehaviour
     [SerializeField]
     private TMP_Text readyToStart = null;
 
+    [SerializeField]
+    private GameObject pause = null;
+
     private Player player;
 
     private void Awake()
     {
         player = FindObjectOfType<Player>();
+        GameManager.Instance.pauseMenu = pause;
         powerUp.text = "";
-
     }
 
     private void Start()
@@ -49,6 +52,16 @@ public class HUD : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
         readyToStart.enabled = false;
+    }
+
+    public void OnMainMenu()
+    {
+        GameManager.Instance.OnMainMenu();
+    }
+
+    public void OnResume()
+    {
+        GameManager.Instance.OnResume();
     }
 
 }

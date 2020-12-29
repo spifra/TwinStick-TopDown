@@ -156,6 +156,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnPause(InputValue value)
+    {
+        GameManager.Instance.OnPause();
+    }
+
     #endregion
 
     private IEnumerator InstatiateProjectile()
